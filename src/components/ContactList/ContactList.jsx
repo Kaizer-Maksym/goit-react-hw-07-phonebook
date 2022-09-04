@@ -12,7 +12,7 @@ import {
 import { BsTelephoneFill } from 'react-icons/bs';
 
 export const ContactsList = () => {
-  const [deleteContact] = useDeleteContactMutation();
+  const [deleteContact, result] = useDeleteContactMutation();
   const visibleContacts = useFilter();
 
   return (
@@ -25,7 +25,12 @@ export const ContactsList = () => {
               <span>{name} :</span>
               <span>{phone}</span>
             </ContactInfo>
-            <BtnOnDelet onClick={() => deleteContact(id)}>Delete</BtnOnDelet>
+            <BtnOnDelet
+              onClick={() => deleteContact(id)}
+              disabled={result.isLoading}
+            >
+              Delete
+            </BtnOnDelet>
           </ContactItem>
         ))}
     </ListOfContacts>
