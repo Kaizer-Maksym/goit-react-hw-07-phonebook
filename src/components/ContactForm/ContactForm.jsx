@@ -10,7 +10,7 @@ import {
 
 export const ContactsForm = () => {
   const onSubmit = useSubmit();
-  const [_, result] = useCreateContactMutation();
+  const [result] = useCreateContactMutation();
 
   return (
     <FormStyle autoCapitalize="off" onSubmit={onSubmit}>
